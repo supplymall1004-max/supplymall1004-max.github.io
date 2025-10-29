@@ -1,0 +1,348 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --secondary-text: #666666;
+    --border-color: #e0e0e0;
+    --link-color: #0066cc;
+    --hover-color: #0052a3;
+    --card-bg: #f9f9f9;
+    --code-bg: #f4f4f4;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --secondary-text: #b0b0b0;
+    --border-color: #404040;
+    --link-color: #5da8ff;
+    --hover-color: #7bb9ff;
+    --card-bg: #2a2a2a;
+    --code-bg: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+header h1 a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.2s;
+}
+
+header h1 a:hover {
+    color: var(--link-color);
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.theme-btn:hover {
+    background-color: var(--border-color);
+}
+
+/* Main Content */
+main {
+    min-height: calc(100vh - 200px);
+    padding: 40px 0;
+}
+
+/* Search */
+.search-container {
+    margin-bottom: 30px;
+}
+
+#search-input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    transition: border-color 0.2s;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: var(--link-color);
+}
+
+/* Filter Buttons */
+.filter-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 2px solid var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.filter-btn:hover {
+    border-color: var(--link-color);
+    color: var(--link-color);
+}
+
+.filter-btn.active {
+    background-color: var(--link-color);
+    color: white;
+    border-color: var(--link-color);
+}
+
+/* Post Cards */
+.post-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.post-card a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.post-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--link-color);
+    transition: color 0.2s;
+}
+
+.post-card a:hover h2 {
+    color: var(--hover-color);
+}
+
+.post-meta {
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.post-meta span {
+    margin-right: 15px;
+}
+
+.post-excerpt {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.post-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: var(--border-color);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+
+/* Post Content */
+.post-content {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 40px;
+}
+
+.post-header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.post-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.post-header .post-meta {
+    font-size: 1rem;
+}
+
+.post-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.post-body h1,
+.post-body h2,
+.post-body h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.post-body h2 {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.post-body h3 {
+    font-size: 1.5rem;
+}
+
+.post-body p {
+    margin-bottom: 1rem;
+}
+
+.post-body a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--link-color);
+    transition: color 0.2s;
+}
+
+.post-body a:hover {
+    color: var(--hover-color);
+}
+
+.post-body ul,
+.post-body ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.post-body li {
+    margin-bottom: 0.5rem;
+}
+
+.post-body blockquote {
+    border-left: 4px solid var(--link-color);
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    color: var(--secondary-text);
+    font-style: italic;
+}
+
+.post-body pre {
+    background-color: var(--code-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.post-body code {
+    background-color: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.post-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+/* Footer */
+footer {
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 30px 0;
+    text-align: center;
+    color: var(--secondary-text);
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--secondary-text);
+}
+
+/* Giscus Container */
+#giscus-container {
+    margin-top: 60px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .post-content {
+        padding: 20px;
+    }
+
+    .post-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .post-card {
+        padding: 20px;
+    }
+
+    header .container {
+        flex-direction: row;
+    }
+}
+
